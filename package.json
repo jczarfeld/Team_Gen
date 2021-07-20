@@ -1,0 +1,33 @@
+{
+  "name": "team_gen",
+  "version": "1.0.0",
+  "description": "Team Profile Generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jczarfeld/Team_Gen.git"
+  },
+  "keywords": [
+    "team",
+    "profile",
+    "generator"
+  ],
+  "author": "John Osterfeld",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jczarfeld/Team_Gen/issues"
+  },
+  "homepage": "https://github.com/jczarfeld/Team_Gen#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
