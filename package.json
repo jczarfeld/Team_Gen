@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/jczarfeld/Team_Gen#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "inquirer": "^8.1.2"
   },
   "devDependencies": {
