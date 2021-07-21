@@ -22,31 +22,27 @@ const generateHTML = (answers) =>
   <title>My New Read Me</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">The title of my project is ${answers.title}.</p>
-    <h3>Here is more information</h3>
+<div class="row">
+    <div class="card">
+    <div class="card-body">
+    <h1> Name:${answers.github} </h1> 
     <ul class="list-group">
-      <li class="list-group-item">Description: ${answers.description}</li>
-      <li class="list-group-item">Installation instructions: ${answers.instructions}</li>
-      <li class="list-group-item">Usage Information: ${answers.information}</li>
-      <li class="list-group-item">Contribution guidelines: ${answers.guidelines}</li>
-      <li class="list-group-item">Test instructions: ${answers.test}</li>
-    </ul>
-    <h3>I am still alive! Contact Me!</h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
-  </div>
+    <li class="list-group-item">ID: ${answers.id}</li>
+    <li class="list-group-item">E-mail: ${answers.email}</li>
+    <li class="list-group-item">Role: ${answers.role}</li>
+    <li class="list-group-item">Github: ${answers.github}</li>
+    <li class="list-group-item">School: ${answers.school}</li>
+    <li class="list-group-item">Office Number: ${answers.officeNumber}</li>
+        </ul>
+    </div>
 </div>
+    </div>
 </body>
 </html>`;
 
 // questions in the terminal for user input
-function menu() {
-        inquirer
+async function menu()  {
+      await  inquirer
             .prompt([{
                     type: 'input',
                     name: 'name',
@@ -76,21 +72,21 @@ function menu() {
                 //takes user input and prints onto the html layout onto a new file
 
             ])
-            .then(answers => {
-                if (answers.role = "Engineer") {
+          .then(answers => {
+                if (answers.role === "Engineer") {
                     inquirer
                         .prompt([{
                             type: "input",
                             name: "github",
                             message: "What is your github username?"
-                        }])
-                } else if (answers.role = "Manager") {
+                        }]);
+                } else if (answers.role === "Manager") {
                     inquirer
                         .prompt([{
                             type: "input",
                             name: "officeNumber",
                             message: "What is your office number?"
-                        }])
+                        }]);
                 } else {
                     inquirer
                         .prompt([{
@@ -106,9 +102,9 @@ function menu() {
                 fs.writeFile('dist/index.html', htmlPageContent, (err) =>
                     err ? console.log(err) : console.log('Successfully created index.html!')
                 );
-            });
+            })};
 
-
+        
         ////////////////////////////////////////
         //     const inquirer = require("inquirer");
 
@@ -142,17 +138,6 @@ function menu() {
 
 
         //create seperate functions for each class creation--call function that asks questions
-
-
-
-
-
-
-
-
-
-
-
-
-
-        menu();
+        (async function init(){
+            await menu();
+          })();

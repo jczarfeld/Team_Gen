@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+}
+
+.card{
+    background-color: crimson;
+    color:white;
+}
+
+.row {
+    display:flex;
+    justify-content: space-between;
+}
