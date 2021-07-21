@@ -45,7 +45,7 @@ const generateHTML = (answers) =>
 </html>`;
 
 // questions in the terminal for user input
-
+menu = () => {
 inquirer
     .prompt([
         {
@@ -65,47 +65,56 @@ inquirer
             message: "What is your e-mail address?"
         },
         {
-            type: "input",
-            name: "title",
-            message: "What is your project Title?"
+            type: "list",
+            name: "role",
+            message: "What is your role?",
+            choices: ["Engineer", "Intern", "Manager"]
         },
-        {
-            type: "input",
-            name: "description",
-            message: "Please describe your project"
-        },
-        {
-            type: "input",
-            name: "instructions",
-            message: "Please list specific installation instructions"
-        },
-        {
-            type: "input",
-            name: "information",
-            message: "Please list specific usage information"
-        },
-        {
-            type: "input",
-            name: "guidelines",
-            message: "How could one contribute to your project?"
-        },
-        {
-            type: "input",
-            name: "test",
-            message: "Please list specific test instructions"
-        },
+        
+       
 
 
         //takes user input and prints onto the html layout onto a new file
 
     ])
+    .then(val => {
+        if(val.role="Egnineer") {
+            inquirer
+            .prompt([
+                {
+                    type:"input",
+                    name:"github",
+                    message:"What is your github username?"
+                }
+            ])
+        } else if (val.role="Manager") {
+            inquirer
+            .prompt([
+                {
+                    type:"input",
+                    name:"officeNumber",
+                    message:"What is your office number?"
+                }
+            ])
+        } else {
+            inquirer
+            .prompt([
+                {
+                    type:"input",
+                    name:"school",
+                    message:"What is your School's name?"
+                }
+            ])
+        }
+    })
     .then((answers) => {
         const htmlPageContent = generateHTML(answers);
 
-        fs.writeFile('index.html', htmlPageContent, (err) =>
+        fs.writeFile('dist/index.html', htmlPageContent, (err) =>
             err ? console.log(err) : console.log('Successfully created index.html!')
         );
     });
+}
 
 //require classes 
 //require packages
@@ -113,9 +122,9 @@ inquirer
 //use fs to create html and use bootstrap for the styling
 
 
-menu = () => {
+
     //create seperate functions for each class creation--call function that asks questions
-}
+
 
 
 
